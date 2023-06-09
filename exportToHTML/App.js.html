@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>App.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #6a8759;}
+.s2 { color: #808080;}
+.s3 { color: #cc7832;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+App.js</font>
+</center></td></tr></table>
+<pre><span class="s0">import { useFonts, Roboto_100Thin, Roboto_300Light, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold, } from </span><span class="s1">'@expo-google-fonts/roboto'</span><span class="s0">;</span>
+<span class="s0">import { StatusBar } from </span><span class="s1">'expo-status-bar'</span><span class="s0">;</span>
+<span class="s0">import React from </span><span class="s1">'react'</span><span class="s0">;</span>
+<span class="s0">import { Text } from </span><span class="s1">'react-native'</span><span class="s0">;</span>
+<span class="s0">import FlashMessage from </span><span class="s1">'react-native-flash-message'</span><span class="s0">;</span>
+<span class="s0">import { LogBox } from </span><span class="s1">'react-native'</span><span class="s0">;</span>
+<span class="s0">import { UserProvider } from </span><span class="s1">'./src/context/user'</span><span class="s0">;</span>
+<span class="s0">import AppContainer from </span><span class="s1">'./src/routes'</span><span class="s0">;</span>
+<span class="s0">import { colors } from </span><span class="s1">'./src/utilities'</span><span class="s0">;</span>
+<span class="s2">//import { AppLoading } from 'expo';</span>
+<span class="s0">import AppLoading from </span><span class="s1">'expo-app-loading'</span><span class="s0">;</span>
+<span class="s0">import * as SplashScreen from </span><span class="s1">'expo-splash-screen'</span><span class="s0">;</span>
+<span class="s0">LogBox.ignoreLogs([</span><span class="s1">'Warning: ...'</span><span class="s0">]); </span><span class="s2">// Ignore log notification by message</span>
+<span class="s0">LogBox.ignoreAllLogs();</span><span class="s2">//Ignore all log notifications</span>
+
+<span class="s0">export </span><span class="s3">default function </span><span class="s0">App() {</span>
+
+  <span class="s0">const [fontsLoaded] = useFonts({</span>
+    <span class="s0">Thin: Roboto_100Thin,</span>
+    <span class="s0">Light: Roboto_300Light,</span>
+    <span class="s0">Regular: Roboto_400Regular,</span>
+    <span class="s0">Bold: Roboto_500Medium,</span>
+    <span class="s0">Bolder: Roboto_700Bold</span>
+  <span class="s0">});</span>
+
+  <span class="s3">if </span><span class="s0">(!fontsLoaded) {</span>
+    <span class="s3">return </span><span class="s0">(</span>
+      <span class="s0">&lt;&gt;&lt;/&gt;</span>
+      <span class="s2">// &lt;AppLoading /&gt;</span>
+    <span class="s0">);</span>
+  <span class="s0">}</span>
+  <span class="s3">else </span><span class="s0">{</span>
+    <span class="s3">return </span><span class="s0">(</span>
+      <span class="s0">&lt;UserProvider&gt;</span>
+        <span class="s0">&lt;AppContainer /&gt;</span>
+        <span class="s0">&lt;StatusBar style=</span><span class="s1">&quot;dark&quot; </span><span class="s0">backgroundColor={colors.buttonbackground} /&gt;</span>
+        <span class="s0">&lt;FlashMessage position=</span><span class="s1">&quot;top&quot; </span><span class="s0">/&gt;</span>
+      <span class="s0">&lt;/UserProvider&gt;</span>
+    <span class="s0">)</span>
+  <span class="s0">}</span>
+<span class="s0">} </span>
+</pre>
+</body>
+</html>
